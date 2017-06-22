@@ -98,22 +98,3 @@ def IF_THEN(evaluable, actions):
 
 def IF_NOT_THEN(evaluable, actions):
     return IF_THEN_ELSE(evaluable, [], actions)
-
-
-### these are for demo / test purposes and don't have any real world use
-
-class DemoEqualsCondition(Condition):
-    def evaluate(self):
-        if self.operator == Condition.EQUALS:
-            return self.lhs == self.rhs
-        if self.operator == Condition.NOT_EQUALS:
-            return self.lhs != self.rhs
-        raise Exception()
-
-
-class DemoIncrementCounterAction(Action):
-    def __init__(self, counter=0):
-        self.counter = counter
-    def run(self):
-        self.counter += 1
-
